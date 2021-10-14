@@ -16,12 +16,15 @@ def get_discount_code(user_id=None, user_secret=None, brand_id=None):
     response = None
     if user and user["user_secret"] == user_secret:
         #user is valid, so get a discount code, remove it from discounts table, add it to Used Code table
-        discount_code = get_unused_discount_code(user_id)
+        discount_code = get_unused_discount_code(user_id, brand_id)
+        message = ""
+        if discount_code == '':
+            message = "Sorry, there are no more discount available!"
         response = {
                 'status': 'success',
                 'code': '201',
                 'data': discount_code,
-                'message': ''
+                'message': message
         }
     else:
         response = {

@@ -28,14 +28,14 @@ def generate_code():
     if insert_items_in_btach("Discounts", discount_codes):
         response = {
                 'status': 'success',
-                'code': '201'
+                'code': '201',
                 'data': '',
                 'message': 'System generated discount codes successfully'
             }
     else:
         response = {
                 'status': 'error',
-                'code': '500'
+                'code': '500',
                 'data': '',
                 'message': 'System generated discount codes successfully'
             }
@@ -43,4 +43,3 @@ def generate_code():
 
 if __name__ == "__main__":
     app.run(port=5001, debug=True)
-    
