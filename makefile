@@ -9,7 +9,7 @@ venv:
 	$(VIRTUALENV) venv
 
 install: clean venv
-	. venv/bin/activate; pip install -r requirements.txt
+	. venv/bin/activate; pip install -r requirements.txt; python database/init_db.py
 
 launch: venv shutdown
 	. venv/bin/activate; python  discount_generator.py &
